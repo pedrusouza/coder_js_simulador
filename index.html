@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset = "UTF-8"></meta>
+<script>
+class Pessoa{
+
+    constructor(nome, idade, genero, altura, pais){
+    this.nome = nome;
+    this.idade = idade;
+    this.genero = genero;
+    this.altura = altura;
+    this.pais = pais;
+    }
+
+    retornaNome(){
+        return "O seu nome é: " + this.nome;
+    }
+
+    retornaIdade(){
+        return "Você tem " + this.idade + " anos."
+    }
+
+    retornaGenero(){
+        return "O seu gênero é " + this.genero;
+    }
+
+    retornaAltura(){
+        return "Você tem " + this.altura + " centímetros de altura."
+    }
+
+    retornaPais(){
+        
+        let linkWiki = "https://pt.wikipedia.org/wiki/" + this.pais.replace(" ", "_")
+        let info = "O país de origem é: " + this.pais + ". Para mais informações, aperte o botão OK";
+        if (confirm(info)) {
+            window.open(linkWiki, '_blank');
+        }
+    }
+
+}
+
+var nomePessoa = prompt("Qual o seu nome?");
+var idadePessoa = prompt("Quantos anos você tem?");
+var generoPessoa = prompt("Qual o seu gênero?");
+var alturaPessoa = prompt("Qual a sua altura? (Em centímetros)");
+var paisPessoa = prompt("E qual o seu país de origem?");
+
+let pessoa = new Pessoa(nomePessoa, idadePessoa, generoPessoa, alturaPessoa, paisPessoa);
+
+var selecao = parseInt(prompt("Anotado. Agora, o que deseja saber sobre a pessoa cadastrada? Digite 1 para Nome, 2 para Idade, 3 para Genero, 4 para Altura e 5 para saber o País de origem."));
+
+switch (selecao) {
+
+    case 1:
+        alert(pessoa.retornaNome());
+        break;
+    case 2:
+        alert(pessoa.retornaIdade());
+        break;
+    case 3:
+        alert(pessoa.retornaGenero());
+        break;
+    case 4:
+        alert(pessoa.retornaAltura());
+        break;
+    case 5:
+        alert(pessoa.retornaPais());
+        break;
+    default:
+        alert("Opção Inválida. Tente novamente");
+
+}
+</script>
+</head>
+</html>
